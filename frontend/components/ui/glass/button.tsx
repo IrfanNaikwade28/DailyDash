@@ -1,13 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { Button as BaseButton } from "@/components/ui/button"
+import { Button as BaseButton, buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { GlassCustomization } from "@/lib/glass-utils"
 import { hoverEffects, type HoverEffect } from "@/lib/hover-effects"
+import type { VariantProps } from "class-variance-authority"
 
 export interface ButtonProps
-  extends Omit<React.ComponentProps<typeof BaseButton>, "glass"> {
+  extends Omit<React.ComponentProps<typeof BaseButton>, "glass" | "variant">,
+    VariantProps<typeof buttonVariants> {
   effect?: HoverEffect
   glass?: GlassCustomization
 }
