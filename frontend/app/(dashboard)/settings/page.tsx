@@ -67,8 +67,8 @@ export default function SettingsPage() {
   return (
     <div className="space-y-8 max-w-3xl">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Settings</h1>
-        <p className="text-white/70 text-base">Customize your content preferences</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Settings</h1>
+        <p className="text-white/70 text-sm md:text-base">Customize your content preferences</p>
       </div>
 
       <Card variant="glass">

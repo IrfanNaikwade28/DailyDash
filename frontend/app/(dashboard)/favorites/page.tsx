@@ -38,8 +38,8 @@ export default function FavoritesPage() {
   return (
     <div className="space-y-8">
       <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold text-white mb-2">Favorites</h1>
-        <p className="text-white/70 text-base">Your saved content</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Favorites</h1>
+        <p className="text-white/70 text-sm md:text-base">Your saved content</p>
       </div>
 
       {filteredContent.length === 0 ? (

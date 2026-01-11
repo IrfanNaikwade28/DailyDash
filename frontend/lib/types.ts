@@ -25,4 +25,5 @@ export interface UIState {
   contentTypeFilter: "all" | "news" | "movie" | "social";
   isLoading: boolean;
   error: string | null;
+  isSidebarOpen: boolean;
 }

@@ -9,10 +9,10 @@ export default function DashboardLayout({
   return (
     <>
       <Sidebar />
-      <div className="ml-64">
+      <div className="md:ml-64">
         <Header />
         <main className="pt-24 mt-5 pb-12">
-          <div className="max-w-7xl mx-auto px-6">{children}</div>
+          <div className="max-w-7xl mx-auto px-4 md:px-6">{children}</div>
         </main>
       </div>
     </>

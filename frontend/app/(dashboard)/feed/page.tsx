@@ -101,8 +101,8 @@ export default function FeedPage() {
   return (
     <div className="space-y-8">
       <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold text-white mb-2">Your Feed</h1>
-        <p className="text-white/70 text-base">Latest content personalized for you</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Your Feed</h1>
+        <p className="text-white/70 text-sm md:text-base">Latest content personalized for you</p>
         <p className="text-white/50 text-xs mt-1">Drag cards to reorder your feed</p>
       </div>
 

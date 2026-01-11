@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Card } from "@/components/ui/glass/card";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { setSidebarOpen } from "@/store/slices/uiSlice";
+import { useEffect } from "react";
 
 const navItems = [
   { href: "/feed", label: "Feed", icon: "📰" },
@@ -14,9 +17,47 @@ const navItems = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
+  const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
+
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      dispatch(setSidebarOpen(false));
+    }
+  }, [pathname, dispatch]);
+
+  // Handle click outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (window.innerWidth < 768 && isSidebarOpen) {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && !sidebar.contains(e.target as Node)) {
+          dispatch(setSidebarOpen(false));
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isSidebarOpen, dispatch]);
 
   return (
-    <aside className="w-64 min-h-screen p-4 fixed left-0 top-0 z-20">
+    <>
+      {/* Overlay for mobile */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+          onClick={() => dispatch(setSidebarOpen(false))}
+        />
+      )}
+      
+      <aside 
+        id="sidebar"
+        className={`w-64 min-h-screen p-4 fixed left-0 top-0 z-40 transition-transform duration-300 ease-in-out ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:translate-x-0`}
+      >
       <Card variant="frosted" className="p-6 flex flex-col h-[90vh]">
         {/* Logo Section */}
         <div className="mb-8 pb-6 border-b border-white/20">
@@ -65,6 +106,7 @@ export function Sidebar() {
           </div>
         </div>
       </Card>
-    </aside>
+      </aside>
+    </>
   );
 }

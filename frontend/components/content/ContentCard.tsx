@@ -78,7 +78,7 @@ export function ContentCard({ content }: ContentCardProps) {
       </CardHeader>
       <CardContent className={isSocialPost ? "space-y-2" : "space-y-4"}>
         {content.image && (
-          <div className="w-full h-44 rounded-lg overflow-hidden">
+          <div className="w-full h-36 md:h-44 rounded-lg overflow-hidden">
             <img
               src={content.image}
               alt={content.title}

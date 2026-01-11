@@ -6,6 +6,7 @@ const initialState: UIState = {
   contentTypeFilter: "all",
   isLoading: false,
   error: null,
+  isSidebarOpen: false,
 };
 
 const uiSlice = createSlice({
@@ -24,8 +25,14 @@ const uiSlice = createSlice({
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
     },
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
+    setSidebarOpen: (state, action: PayloadAction<boolean>) => {
+      state.isSidebarOpen = action.payload;
+    },
   },
 });
 
-export const { setSearchQuery, setContentTypeFilter, setLoading, setError } = uiSlice.actions;
+export const { setSearchQuery, setContentTypeFilter, setLoading, setError, toggleSidebar, setSidebarOpen } = uiSlice.actions;
 export default uiSlice.reducer;
