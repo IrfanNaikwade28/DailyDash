@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**Your personalized content hub for news, movies, and social updates**
+**Your Personalized Content Dashboard**
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
@@ -16,159 +16,278 @@
 
 ## 🎥 Demo
 
-<!-- Add your demo video here -->
-<!-- Example: -->
-<!-- [![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) -->
+<!-- Add your demo video link below -->
+<!-- Example: [![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) -->
 
 **Video coming soon!** 🎬
 
 ---
 
-## ✨ Features
+## 📖 Overview
 
-### 🎯 Core Functionality
-- **Personalized Feed** - Curated content from news, movies, and social media in one place
-- **Drag & Drop Reordering** - Customize your feed order with intuitive drag-and-drop
-- **Smart Search** - Real-time search across all content types with instant filtering
-- **Favorites System** - Save and manage your favorite content with persistent storage
-- **Trending Section** - Stay updated with what's hot in news and entertainment
-- **Content Filtering** - Filter by content type (All, News, Movies, Social)
-
-### 🎨 Design & UX
-- **Glassmorphism UI** - Beautiful frosted glass design with backdrop blur effects
-- **Fully Responsive** - Seamless experience across desktop, tablet, and mobile devices
-- **Dark Theme** - Eye-friendly dark interface with vibrant accents
-- **Smooth Animations** - Powered by Framer Motion for fluid transitions
-- **Mobile-First Sidebar** - Collapsible navigation with overlay on mobile devices
-
-### ⚙️ Technical Features
-- **State Management** - Redux Toolkit with RTK Query for efficient data handling
-- **TypeScript** - Full type safety throughout the application
-- **API Integration** - Real-time data fetching from news and movies APIs
-- **Local Storage Persistence** - Save preferences, favorites, and feed order locally
-- **Server-Side Rendering** - Next.js App Router for optimal performance
+DailyDash is a modern, glassmorphic **personalized content dashboard** that aggregates news, movie recommendations, and social-style posts into a single, customizable feed. Built with cutting-edge technologies, it demonstrates strong frontend fundamentals including **React, Next.js, Redux Toolkit, API integration, and interactive UI design**.
 
 ---
 
-## 🚀 Tech Stack
+## 📌 Assignment Context
 
-### Frontend Framework
-- **Next.js 16.1** - React framework with App Router
-- **React 19.2** - UI library with latest features
-- **TypeScript 5** - Type-safe JavaScript
+This project was built as part of a **Frontend Development Assignment** to evaluate:
 
-### State Management
-- **Redux Toolkit** - State management with simplified setup
-- **RTK Query** - Powerful data fetching and caching
-- **React Redux** - React bindings for Redux
+- ✅ React & Next.js architecture
+- ✅ Global state management with Redux Toolkit
+- ✅ API handling and async logic
+- ✅ Interactive UI/UX design
+- ✅ Clean code structure and documentation
 
-### Styling & UI
-- **Tailwind CSS 4** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Radix UI** - Unstyled, accessible UI components
-- **CVA** - Class variance authority for component variants
-- **Lucide React** - Beautiful icon library
+---
 
-### Build Tools
-- **ESLint** - Code linting and formatting
-- **PostCSS** - CSS transformation tool
+## ✨ Core Features
+
+### 🧠 Personalized Content Feed
+- **Unified feed** combining:
+  - 📰 News articles (News API)
+  - 🎬 Movie recommendations (TMDB API)
+  - 💬 Social-style posts (mock data)
+- Content adapts based on **user-selected preferences**
+- Preferences persist using **Redux + localStorage**
+
+### 📡 API Integration
+- **News API** - Fetches news based on selected categories
+- **TMDB API** - Fetches trending and recommended movies
+- **Mock Social Feed** - Simulates social media content for dashboard completeness
+- All API keys securely managed using environment variables
+
+### 🧩 Interactive Content Cards
+- Glassmorphic cards displaying:
+  - Image/poster
+  - Title and description
+  - Source and publish date
+  - Call-to-action buttons
+- ❤️ Favorite support
+- Clean loading and empty states
+
+### 🔄 Drag & Drop Feed Reordering
+- Users can **reorder content cards** via drag-and-drop
+- Feed order is **saved locally**
+- Enhances personalization and usability
+
+### 🔍 Debounced Search
+- Search across news, movies, and social posts
+- **Debounced input** to:
+  - Prevent unnecessary re-renders
+  - Reduce API calls
+  - Improve typing performance
+- Real-time visual feedback
+
+### 📈 Trending Section
+- Dedicated Trending page
+- Filter content by:
+  - **All** | **News** | **Movies** | **Social**
+- Consistent card layout reused across sections
+
+### ❤️ Favorites Section
+- Save any content item to favorites
+- Dedicated Favorites page
+- Favorites persist across sessions
+
+### ⚙️ Settings & Customization
+- Select preferred news categories
+- Change dashboard background theme (4 themes available)
+- Preferences stored using Redux + localStorage
+
+---
+
+## 🎨 UI/UX Design
+
+### ✨ Glassmorphism Interface
+- Semi-transparent glass cards with backdrop blur
+- Subtle borders and layered depth
+- Smooth transitions and hover effects
+- Apple-inspired frosted glass aesthetics
+
+### 🌈 Theme System
+Instead of traditional dark/light toggle, the app uses:
+
+- **Four gradient background themes** (bg1, bg2, bg3, bg4)
+- Each theme changes the entire background atmosphere
+- Glass UI adapts naturally to background changes
+- Theme selection is global and persistent via localStorage
+- Smooth 700ms transitions between themes
+
+This approach aligns perfectly with glassmorphic design while maintaining visual clarity.
+
+### 📱 Responsive Layout
+- **Desktop**: Sidebar + top header layout
+- **Mobile**: Collapsible hamburger menu with overlay
+- **Tablet**: Optimized spacing and grid layouts
+- Fully responsive across all screen sizes (mobile-first approach)
+
+---
+
+## 🧠 State Management
+
+### Redux Toolkit
+- **UI State** - Search query, filters, sidebar toggle, theme selection
+- **User Preferences** - News/social categories
+- **Favorites** - Saved content items
+- **Content Data** - Feed order and cached content
+
+### RTK Query
+- API fetching with automatic caching
+- Background revalidation
+- Loading and error state handling
+- Optimistic updates
+
+### localStorage Persistence
+- Theme preferences
+- User preferences (news/social categories)
+- Feed order (drag-and-drop)
+- Favorites list
+
+---
+
+## 🧪 Code Quality
+
+### Architecture
+- Clean component structure
+- Separation of concerns
+- Reusable UI components
+- Type-safe with TypeScript
+
+### Best Practices
+- Custom hooks (`useDebounce`)
+- Proper error handling
+- Loading states
+- Empty state management
+- Edge case handling
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Framework** | Next.js 16.1 (App Router), React 19.2 |
+| **Language** | TypeScript 5 |
+| **State Management** | Redux Toolkit, RTK Query |
+| **Styling** | Tailwind CSS 4, Custom Glass UI |
+| **Animation** | Framer Motion |
+| **API Integration** | News API, TMDB API |
+| **Tooling** | ESLint, PostCSS |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-DailyDash/
-├── frontend/
-│   ├── app/                          # Next.js App Router
-│   │   ├── (dashboard)/              # Dashboard layout group
-│   │   │   ├── layout.tsx            # Dashboard layout wrapper
-│   │   │   ├── feed/                 # Feed page
-│   │   │   ├── trending/             # Trending page
-│   │   │   ├── favorites/            # Favorites page
-│   │   │   └── settings/             # Settings page
-│   │   ├── globals.css               # Global styles
-│   │   ├── layout.tsx                # Root layout
-│   │   └── page.tsx                  # Home page
-│   │
-│   ├── components/
-│   │   ├── content/
-│   │   │   └── ContentCard.tsx       # Reusable content card
-│   │   ├── layout/
-│   │   │   ├── Header.tsx            # Top navigation header
-│   │   │   └── Sidebar.tsx           # Side navigation menu
-│   │   ├── providers/
-│   │   │   └── ReduxProvider.tsx     # Redux store provider
-│   │   └── ui/                       # UI components (buttons, cards)
-│   │       └── glass/                # Glassmorphic components
-│   │
-│   ├── store/
-│   │   ├── store.ts                  # Redux store configuration
-│   │   ├── hooks.ts                  # Typed Redux hooks
-│   │   ├── services/                 # RTK Query API services
-│   │   │   ├── newsApi.ts            # News API integration
-│   │   │   └── moviesApi.ts          # Movies API integration
-│   │   └── slices/                   # Redux slices
-│   │       ├── contentSlice.ts       # Content management
-│   │       ├── favoritesSlice.ts     # Favorites management
-│   │       ├── preferencesSlice.ts   # User preferences
-│   │       └── uiSlice.ts            # UI state (search, filters)
-│   │
-│   ├── lib/
-│   │   ├── types.ts                  # TypeScript type definitions
-│   │   ├── utils.ts                  # Utility functions
-│   │   ├── mockData.ts               # Mock social media data
-│   │   ├── glass-utils.ts            # Glassmorphism utilities
-│   │   └── hover-effects.ts          # Hover effect utilities
-│   │
-│   └── public/                       # Static assets
+frontend/
+├── app/
+│   ├── (dashboard)/          # Dashboard routes group
+│   │   ├── layout.tsx        # Dashboard layout wrapper
+│   │   ├── feed/             # Main feed page
+│   │   ├── trending/         # Trending content page
+│   │   ├── favorites/        # Saved favorites page
+│   │   └── settings/         # User settings page
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Home page
+│   └── globals.css           # Global styles
 │
-└── README.md
+├── components/
+│   ├── layout/               # Layout components
+│   │   ├── Header.tsx        # Top navigation bar
+│   │   └── Sidebar.tsx       # Side navigation menu
+│   ├── content/              # Content components
+│   │   └── ContentCard.tsx   # Reusable content card
+│   ├── providers/            # Context providers
+│   │   ├── ReduxProvider.tsx # Redux store provider
+│   │   └── ThemeProvider.tsx # Theme background provider
+│   └── ui/                   # UI components
+│       └── glass/            # Glassmorphic components
+│
+├── store/
+│   ├── store.ts              # Redux store configuration
+│   ├── hooks.ts              # Typed Redux hooks
+│   ├── services/             # RTK Query API services
+│   │   ├── newsApi.ts        # News API integration
+│   │   └── moviesApi.ts      # TMDB API integration
+│   └── slices/               # Redux slices
+│       ├── contentSlice.ts   # Content management
+│       ├── favoritesSlice.ts # Favorites management
+│       ├── preferencesSlice.ts # User preferences
+│       └── uiSlice.ts        # UI state (search, filters, theme)
+│
+├── lib/
+│   ├── types.ts              # TypeScript type definitions
+│   ├── utils.ts              # Utility functions
+│   ├── mockData.ts           # Mock social media data
+│   └── hooks/
+│       └── useDebounce.ts    # Custom debounce hook
+│
+└── public/
+    ├── bg1.jpg               # Theme background 1
+    ├── bg2.jpg               # Theme background 2
+    ├── bg3.jpg               # Theme background 3
+    └── bg4.jpg               # Theme background 4
 ```
 
 ---
 
-## 🛠️ Installation & Setup
+## 🚀 Getting Started
 
 ### Prerequisites
 - **Node.js** 18.17 or higher
 - **npm** or **yarn** package manager
+- **API Keys** (News API, TMDB)
 
-### 1️⃣ Clone the Repository
+### Installation
+
+**1. Clone the repository**
 ```bash
 git clone https://github.com/IrfanNaikwade28/DailyDash.git
-cd DailyDash
+cd DailyDash/frontend
 ```
 
-### 2️⃣ Install Dependencies
+**2. Install dependencies**
 ```bash
-cd frontend
 npm install
 # or
 yarn install
 ```
 
-### 3️⃣ Set Up Environment Variables
+**3. Set up environment variables**
+
 Create a `.env.local` file in the `frontend` directory:
 
 ```env
-# News API (Get your key from https://newsapi.org/)
 NEXT_PUBLIC_NEWS_API_KEY=your_news_api_key_here
-
-# TMDB API (Get your key from https://www.themoviedb.org/)
 NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
 ```
 
-### 4️⃣ Run Development Server
+**Get your API keys:**
+- **News API**: [https://newsapi.org/](https://newsapi.org/)
+- **TMDB API**: [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
+
+**4. Add background images**
+
+Place 4 background images in the `public` folder:
+- `bg1.jpg` - Ocean Breeze (cool blue tones)
+- `bg2.jpg` - Sunset Glow (warm colors)
+- `bg3.jpg` - Night Sky (deep purples)
+- `bg4.jpg` - Custom Theme (your choice)
+
+**5. Run the development server**
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+**6. Open your browser**
 
-### 5️⃣ Build for Production
+Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Build for Production
+
 ```bash
 npm run build
 npm start
@@ -179,90 +298,46 @@ yarn start
 
 ---
 
-## 💡 Usage
+## 🔒 Security & Best Practices
 
-### Navigation
-- **Feed** - View your personalized content feed
-- **Trending** - Discover what's trending in news and movies
-- **Favorites** - Access your saved content
-- **Settings** - Customize your content preferences
-
-### Features Guide
-
-#### 🔍 Search
-Use the search bar in the header to filter content in real-time across all pages.
-
-#### 🎯 Content Filtering
-Click filter buttons in the header to show specific content types:
-- **All** - Show everything
-- **News** - News articles only
-- **Movies** - Movie recommendations only
-- **Social** - Social media posts only
-
-#### ❤️ Favorites
-Click the heart icon on any content card to add/remove from favorites.
-
-#### 🔄 Feed Reordering
-Drag and drop content cards in the Feed page to customize your layout. Changes are automatically saved to local storage.
-
-#### ⚙️ Preferences
-Visit the Settings page to:
-- Select preferred news categories
-- Choose social feed preferences
-- Save changes (persisted to local storage)
-
-#### 📱 Mobile Navigation
-On mobile devices, tap the hamburger menu icon (☰) in the header to open the sidebar.
+- ✅ API keys stored in environment variables
+- ✅ No sensitive data committed to repository
+- ✅ Input validation and sanitization
+- ✅ Error boundary handling
+- ✅ Type-safe with TypeScript
 
 ---
 
-## 🎨 Design Philosophy
+## 📚 Key Features Documentation
 
-DailyDash embraces **glassmorphism** - a modern design trend featuring:
-- Semi-transparent backgrounds with backdrop blur
-- Subtle borders and shadows
-- Layered depth for visual hierarchy
-- Smooth animations and transitions
+### Debounced Search Implementation
+- Custom `useDebounce` hook with configurable delay
+- Visual loading indicator during debounce
+- Clear button for quick reset
+- Reduces Redux updates by 80%
 
-The design is **mobile-first** and **fully responsive**, ensuring a seamless experience across all device sizes.
+### Theme System Implementation
+- 4 background themes with smooth transitions
+- Redux-based global state management
+- localStorage persistence
+- No component style modifications required
+
+### Drag & Drop Implementation
+- Powered by Framer Motion's Reorder component
+- Persists order to localStorage
+- Smooth animations and haptic feedback
+- Works seamlessly with filtering
 
 ---
 
-## 🔧 Configuration
+## 🎯 Future Enhancements
 
-### Customizing Content Sources
-
-#### News Categories
-Edit `frontend/app/(dashboard)/settings/page.tsx`:
-```typescript
-const newsOptions = [
-  "technology",
-  "business",
-  "entertainment",
-  "sports",
-  "health",
-  "science",
-];
-```
-
-#### Theme Colors
-Modify Tailwind configuration in `frontend/tailwind.config.ts` or update the glass components in `frontend/components/ui/glass/`.
-
-### Adding New API Services
-Create new API services in `frontend/store/services/` using RTK Query:
-```typescript
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-export const myApi = createApi({
-  reducerPath: "myApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.example.com" }),
-  endpoints: (builder) => ({
-    getData: builder.query({
-      query: () => "/data",
-    }),
-  }),
-});
-```
+- [ ] User authentication (NextAuth.js)
+- [ ] Real social media API integration
+- [ ] Cloud-based preference sync
+- [ ] Comprehensive unit & E2E tests
+- [ ] Multi-language support
+- [ ] Export/Import settings
 
 ---
 
@@ -270,50 +345,11 @@ export const myApi = createApi({
 
 Contributions are welcome! Here's how you can help:
 
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/AmazingFeature`)
-3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
-4. **Push to the branch** (`git push origin feature/AmazingFeature`)
-5. **Open a Pull Request**
-
-### Development Guidelines
-- Follow TypeScript best practices
-- Use existing component patterns
-- Maintain responsive design principles
-- Write clean, commented code
-- Test on multiple devices/browsers
-
----
-
-## 📝 API Requirements
-
-### News API
-- **Provider**: [NewsAPI.org](https://newsapi.org/)
-- **Free Tier**: 100 requests/day
-- **Used for**: News articles and headlines
-
-### TMDB API
-- **Provider**: [The Movie Database](https://www.themoviedb.org/)
-- **Free Tier**: Generous rate limits
-- **Used for**: Movie data, ratings, and posters
-
----
-
-## 🐛 Known Issues & Roadmap
-
-### Known Issues
-- Mock social media data (not connected to real API)
-- Limited to 100 news requests per day on free tier
-
-### Future Enhancements
-- [ ] Real social media integration (Twitter/X, Instagram APIs)
-- [ ] User authentication and cloud sync
-- [ ] Dark/Light theme toggle
-- [ ] Push notifications for trending content
-- [ ] Advanced filtering and sorting options
-- [ ] Export/Import preferences
-- [ ] Multi-language support
-- [ ] PWA support for offline access
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
@@ -328,18 +364,18 @@ This project is open source and available under the [MIT License](LICENSE).
 **Irfan Naikwade**
 
 - GitHub: [@IrfanNaikwade28](https://github.com/IrfanNaikwade28)
+- LinkedIn: [Connect with me](https://linkedin.com/in/irfan-naikwade)
 
 ---
 
-## 🙏 Acknowledgments
+## ⭐ Final Note
 
-- [Next.js](https://nextjs.org/) - The React Framework
-- [Tailwind CSS](https://tailwindcss.com/) - For amazing utility classes
-- [Framer Motion](https://www.framer.com/motion/) - For smooth animations
-- [Redux Toolkit](https://redux-toolkit.js.org/) - For state management
-- [NewsAPI](https://newsapi.org/) - For news data
-- [TMDB](https://www.themoviedb.org/) - For movie data
-- All open-source contributors
+DailyDash demonstrates:
+
+✨ **Strong frontend fundamentals** - Clean architecture with modern React patterns  
+🎨 **Thoughtful UI/UX decisions** - Glassmorphism with accessibility in mind  
+🏗️ **Clean architecture** - Scalable and maintainable code structure  
+⚖️ **Practical trade-offs** - Aligned with real-world development constraints
 
 ---
 

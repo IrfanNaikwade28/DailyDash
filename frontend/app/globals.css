@@ -472,3 +472,15 @@
 [data-sonner-toast] [data-close-button]:hover {
   opacity: 0.9 !important;
 }
+
+/* Theme background transitions */
+html,
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  background: transparent;
+}

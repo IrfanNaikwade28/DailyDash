@@ -7,6 +7,7 @@ const initialState: UIState = {
   isLoading: false,
   error: null,
   isSidebarOpen: false,
+  theme: "bg1",
 };
 
 const uiSlice = createSlice({
@@ -31,8 +32,11 @@ const uiSlice = createSlice({
     setSidebarOpen: (state, action: PayloadAction<boolean>) => {
       state.isSidebarOpen = action.payload;
     },
+    setTheme: (state, action: PayloadAction<"bg1" | "bg2" | "bg3">) => {
+      state.theme = action.payload;
+    },
   },
 });
 
-export const { setSearchQuery, setContentTypeFilter, setLoading, setError, toggleSidebar, setSidebarOpen } = uiSlice.actions;
+export const { setSearchQuery, setContentTypeFilter, setLoading, setError, toggleSidebar, setSidebarOpen, setTheme } = uiSlice.actions;
 export default uiSlice.reducer;

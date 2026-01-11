@@ -8,6 +8,7 @@ import {
   setContentTypeFilter,
   toggleSidebar,
 } from "@/store/slices/uiSlice";
+import { useDebouncedValue } from "@/lib/hooks/useDebounce";
 
 const filterOptions = [
   { value: "all" as const, label: "All" },
@@ -21,14 +22,24 @@ export function Header() {
   const searchQuery = useAppSelector((state) => state.ui.searchQuery);
   const activeFilter = useAppSelector((state) => state.ui.contentTypeFilter);
   const [localSearch, setLocalSearch] = useState(searchQuery);
+  
+  // Use debounced search with loading state
+  const { debouncedValue: debouncedSearch, isDebouncing } = useDebouncedValue(
+    localSearch,
+    400 // 400ms delay for optimal UX
+  );
 
+  // Update Redux store when debounced value changes
   useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(setSearchQuery(localSearch));
-    }, 300);
+    dispatch(setSearchQuery(debouncedSearch));
+  }, [debouncedSearch, dispatch]);
 
-    return () => clearTimeout(timer);
-  }, [localSearch, dispatch]);
+  // Sync with Redux store if search query changes externally
+  useEffect(() => {
+    if (searchQuery !== localSearch && !isDebouncing) {
+      setLocalSearch(searchQuery);
+    }
+  }, [searchQuery]);
 
   const handleFilterClick = (
     filterValue: "all" | "news" | "movie" | "social"
@@ -82,8 +93,24 @@ export function Header() {
                   value={localSearch}
                   onChange={(e) => setLocalSearch(e.target.value)}
                   placeholder="Search…"
-                  className="w-full pl-8 md:pl-9 pr-2 md:pr-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 transition-all"
+                  className="w-full pl-8 md:pl-9 pr-8 md:pr-10 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 transition-all"
                 />
+                {/* Debouncing indicator */}
+                {isDebouncing && localSearch && (
+                  <div className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2">
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  </div>
+                )}
+                {/* Clear button */}
+                {!isDebouncing && localSearch && (
+                  <button
+                    onClick={() => setLocalSearch("")}
+                    className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
+                    aria-label="Clear search"
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
             </div>
 
