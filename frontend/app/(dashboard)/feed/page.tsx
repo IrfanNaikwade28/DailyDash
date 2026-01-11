@@ -145,6 +145,20 @@ export default function FeedPage() {
               key={item.id}
               value={item}
               className="cursor-grab active:cursor-grabbing"
+              drag
+              dragElastic={0.2}
+              dragTransition={{ bounceStiffness: 600, bounceDamping: 30 }}
+              whileDrag={{
+                scale: 1.05,
+                zIndex: 1000,
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+                transition: { duration: 0.2 }
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30
+              }}
             >
               <ContentCard content={item} />
             </Reorder.Item>
