@@ -16,10 +16,7 @@
 
 ## 🎥 Demo
 
-<!-- Add your demo video link below -->
-<!-- Example: [![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) -->
-
-**Video coming soon!** 🎬
+https://github.com/user-attachments/assets/bc190061-26f2-4a74-b40c-7ced0b863b1f
 
 ---
 
