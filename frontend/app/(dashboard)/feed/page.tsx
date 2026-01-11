@@ -23,6 +23,19 @@ export default function FeedPage() {
   const { data: moviesData, isLoading: isMoviesLoading } = useGetPopularMoviesQuery();
 
   const [orderedContent, setOrderedContent] = useState<NormalizedContent[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Load persisted data from localStorage
   useEffect(() => {
@@ -103,14 +116,24 @@ export default function FeedPage() {
       <div className="max-w-2xl">
         <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Your Feed</h1>
         <p className="text-white/70 text-sm md:text-base">Latest content personalized for you</p>
-        <p className="text-white/50 text-xs mt-1">Drag cards to reorder your feed</p>
+        {!isMobile && (
+          <p className="text-white/50 text-xs mt-1">Drag cards to reorder your feed</p>
+        )}
       </div>
 
       {filteredContent.length === 0 ? (
         <div className="text-center py-16">
           <p className="text-white/70 text-base">No content found</p>
         </div>
+      ) : isMobile ? (
+        // Mobile: Regular grid without drag-and-drop
+        <div className="grid grid-cols-1 gap-5 auto-rows-auto">
+          {filteredContent.map((item) => (
+            <ContentCard key={item.id} content={item} />
+          ))}
+        </div>
       ) : (
+        // Desktop: Reorderable grid with drag-and-drop
         <Reorder.Group
           axis="y"
           values={filteredContent}
