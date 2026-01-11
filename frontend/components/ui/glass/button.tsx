@@ -39,7 +39,6 @@ export const Button = React.forwardRef<
     <BaseButton
       ref={ref}
       variant={variant}
-      glass={glass}
       className={cn(
         "relative overflow-hidden",
         hoverEffects({ hover: effect }),
