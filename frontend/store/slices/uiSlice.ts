@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { UIState } from "@/lib/types";
+import type { UIState, ThemeVariant } from "@/lib/types";
 
 const initialState: UIState = {
   searchQuery: "",
@@ -32,7 +32,7 @@ const uiSlice = createSlice({
     setSidebarOpen: (state, action: PayloadAction<boolean>) => {
       state.isSidebarOpen = action.payload;
     },
-    setTheme: (state, action: PayloadAction<"bg1" | "bg2" | "bg3">) => {
+    setTheme: (state, action: PayloadAction<ThemeVariant>) => {
       state.theme = action.payload;
     },
   },
