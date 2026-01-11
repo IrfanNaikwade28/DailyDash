@@ -12,7 +12,7 @@ const navItems = [
   { href: "/feed", label: "Feed", icon: "📰" },
   { href: "/trending", label: "Trending", icon: "🔥" },
   { href: "/favorites", label: "Favorites", icon: "❤️" },
-  { href: "/settings", label: "Theme", icon: "🎨" },
+  { href: "/theme", label: "Theme", icon: "🎨" },
   { href: "/settings", label: "Settings", icon: "⚙️" },
 ];
 
