@@ -1,4 +1,4 @@
-# DailyDash
+ # DailyDash
 
 A modern, unified dashboard application that aggregates content from multiple sources (news, movies, and social posts) with a beautiful glassmorphic UI design.
 
