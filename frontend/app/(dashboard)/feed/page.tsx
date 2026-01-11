@@ -127,7 +127,7 @@ export default function FeedPage() {
         </div>
       ) : isMobile ? (
         // Mobile: Regular grid without drag-and-drop
-        <div className="grid grid-cols-1 gap-5 auto-rows-auto">
+        <div className="grid grid-cols-1 gap-5 auto-rows-auto touch-pan-y">
           {filteredContent.map((item) => (
             <ContentCard key={item.id} content={item} />
           ))}
